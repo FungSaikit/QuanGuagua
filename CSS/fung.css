@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+}
+
+button {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+input {
+    background-color: #fff;
+    border: 0;
+    width: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.searchbar {
+    background-color: #f38200;
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    z-index: 100;
+}
+
+.bottombar {
+    background-color: #fff;
+    height: 3rem;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+}
+
+.placeholder {
+    display: block;
+    height: 3rem;
+    width: 100%;
+}
+
+.placeholder_low {
+    display: block;
+    height: 2.5rem;
+    width: 100%;
+}
+
+.searchbar_button {
+    width: auto;
+    height: auto;
+    max-width: 2rem;
+    max-height: 2rem;
+    margin: 0.25rem;
+}
+
+.searchbar_middle {
+    background-color: #fff;
+    height: 2rem;
+    flex-grow: 1;
+    vertical-align: middle;
+    margin: 0.25rem;
+    display: flex;
+    border-radius: 1rem;
+}
+
+.searchbar_middle_img {
+    width: 1.4rem;
+    height: 1.4rem;
+    margin: 0.3rem;
+}
+
+.searchbar_middle_input {
+    flex-grow: 1;
+    font-size: 1rem;
+}
+
+.searchbar_middle_button {
+    width: 3rem;
+    height: 1.4rem;
+    margin: 0.3rem 0.2rem 0.3rem 0;
+    border-left: 1px solid gray;
+    font-size: 1rem;
+    padding-right: 0.25rem;
+}
+
+.bottombar_tab {
+    display: inline-block;
+    background-color: #fff;
+    color: gray;
+    width: 10%;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.bottombar_tab_selected {
+    color: #f38200;
+}
+
+.bottombar_tab_img {
+    display: inline-block;
+    height: 1.2rem;
+    margin: 0.2rem auto;
+}
+
+.swiper_img {
+    width: 100%;
+    height: 100%;
+}
+
+.top_classes {
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fff;
+    display: flex;
+}
+
+.top_class {
+    display: inline-block;
+    text-align: center;
+    width: 10%;
+    height: 1.9rem;
+    flex-grow: 1;
+    border-bottom: 0.1rem white solid;
+}
+
+.top_class_selected{
+    color: #f38200;
+    border-bottom-color: #f38200;
+}
+
+.classes{
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.classes:after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.class {
+    width: 20%;
+    font-size: 0.8rem;
+    color: dimgray;
+    float: left;
+    margin-top: 0.5rem;
+}
+
+.class img {
+    width: auto;
+    height: auto;
+    max-width: 50%;
+}
