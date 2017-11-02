@@ -284,6 +284,7 @@ input {
 
 .coupon_right_img {
     height: 6rem;
+    width: 5.1rem;
 }
 
 .coupon_title {
@@ -321,8 +322,8 @@ input {
     z-index: 10;
     display: inline-block;
     position: relative;
-    left: 5rem;
-    bottom: 2rem;
+    bottom: 4.5rem;
+    right: 0.5rem;
 }
 
 .coupon_salenumber {
@@ -461,7 +462,7 @@ input {
 .partner {
     display: inline-block;
     position: relative;
-    bottom: 8rem;
+    bottom: 18rem;
     color: white;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 2rem;
