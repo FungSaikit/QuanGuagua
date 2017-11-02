@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/clipboard-polyfill.js"></script>
+</head>
+
+<style type="text/css">
+
+    img {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .goods_bigpicture {
+        background-color: #fff;
+        text-align: center;
+        font-size: 0;
+        border-bottom: 1px lightgray solid;
+    }
+
+    .goods_bigpicture_img {
+        vertical-align: middle;
+        width: auto;
+        height: auto;
+        max-width: 95%;
+        max-height: 95%;
+    }
+
+    .titleblock {
+        padding: 2.5%;
+    }
+
+    .titleblock_price {
+        color: #f38200;
+    }
+
+    .priceblock {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .priceblock_div {
+        width: 1rem;
+        height: 2rem;
+        line-height: 2rem;
+        text-align: center;
+        flex-grow: 1;
+        font-size: 0.8rem;
+        color: dimgray;
+        vertical-align: middle;
+    }
+
+    .priceblock_div_img {
+        height: 1.2rem;
+        vertical-align: middle;
+    }
+
+    .priceblock_div_span {
+        vertical-align: middle;
+        color: #f38200;
+        font-size: 1.2rem;
+    }
+
+    .recommendblock {
+        color: darkred;
+        font-size: 0.8rem;
+        padding: 2.5%;
+        margin-top: 0;
+    }
+
+    .recommendblock_title {
+        color: dimgray;
+        font-size: 1rem;
+    }
+
+    .bottombar {
+        display: flex;
+        flex-direction: row;
+        line-height: 3rem;
+    }
+
+    .bottombar_button {
+        text-align: center;
+        width: 1rem;
+        flex-grow: 1;
+        background-color: #fff;
+        font-size: 0.8rem;
+        color: dimgray;
+    }
+
+    .bottombar_button img {
+        height: 0.8rem;
+        vertical-align: middle;
+    }
+
+    .bottombar_button span {
+        height: 0.8rem;
+        vertical-align: middle;
+    }
+
+    .detailsblock {
+        width: 95%;
+        padding: 0 2.5%;
+        margin-top: 0.3rem;
+    }
+
+    #detailsblock {
+        margin-top: 0;
+        width: 95%;
+        overflow: auto;
+        padding: 2.5%;
+    }
+
+    .tableenter {
+        margin-right: 0;
+    }
+    
+    .jumpwindow_middle {
+        color: darkred;
+        font-size: 0.8rem;
+        height: 14rem;
+    }
+
+    .command_div {
+        width: 90%;
+        height: 3rem;
+        line-height: 3rem;
+        border: 1px darkred dotted;
+        margin: 0.5rem auto;
+        display: block;
+        border-radius: 0.5rem;
+    }
+
+    .orangeButton {
+        line-height: 2rem;
+        margin: 0.5rem auto;
+        font-size: 0.9rem;
+    }
+
+
+
+</style>
+
+<body>
+
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        商品详情
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div class="placeholder_low"></div>
+
+<div class="goods_bigpicture">
+
+    <img class="goods_bigpicture_img" src="./IMG/demopic/img0.jpg">
+
+</div>
+
+<script type="text/javascript">
+
+    var bigPic = document.getElementsByClassName("goods_bigpicture")[0];
+
+    bigPic.style.height = bigPic.offsetWidth + "px";
+    bigPic.style.lineHeight = bigPic.offsetWidth + "px";
+
+</script>
+
+<div class="block titleblock">
+    原装奔驰汽车C180 C200L E200L E260 E300 GLK300遥控器钥匙电池
+    <div class="titleblock_price">券后价: ¥ 858</div>
+</div>
+
+<div class="block priceblock">
+    <div class="priceblock_div">在售价: ¥
+        <del>888</del>
+    </div>
+    <div class="priceblock_div"><img class="priceblock_div_img" src="./IMG/coupon/coupon_little.png"> <span
+            class="priceblock_div_span">30 元</span>
+    </div>
+    <div class="priceblock_div">销量: 16888</div>
+</div>
+
+<div class="block" style="text-align: center; font-size: 0.8rem; color: darkred;">
+    <span>长按复制框内淘口令</span>
+    <br>
+    <span>打开手机淘宝APP就能领券啦</span>
+    <br>
+    <span id="command_div" class="command_div">复制整行￥fSyo0TJil2T￥</span>
+    <span>或者</span>
+    <div class="orangeButton" onclick="oneKeyCopy()">一键复制</div>
+</div>
+
+<div class="block recommendblock">
+    <div class="recommendblock_title">推荐理由</div>
+    关于使用寿命：本电池为奔驰原装电池，同步4S店销售，正常使用寿命为1-2年。由于电子产品都存在不稳定因素，例如漏电导致使用时间急剧缩短（概率很小），针对类似问题，我们对卖出去的电池都有一年的保用时间，若一年内没电，请联系客服，我们将会免费给您更换新的电池，解决您的后顾之忧。
+</div>
+
+<div class="tableline detailsblock" onclick="displayDetails()">
+    <span>图文详情</span>
+    <img src="./IMG/user/enter.png" class="tableenter">
+</div>
+<div class="block" id="detailsblock" hidden></div><!--这里是放置图文详情的-->
+
+</body>
+
+<script type="text/javascript">
+
+    var orderWindow = document.getElementById("orderwindow");
+    var detailsBlock = document.getElementById("detailsblock");
+    var commandDiv = document.getElementById("command_div");
+
+    function displayDetails() {
+        detailsBlock.hidden = !detailsBlock.hidden;
+
+        if (detailsBlock.innerHTML == "") {
+            /*如果图文详情是空的，则加载图文详情。若图文详情为空则不加载*/
+            detailsblock.innerHTML = "我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！我是图文详情！！！！！"
+        }
+
+        var jump = setTimeout(function () {
+            window.location.href = "#detailsblock";
+            clearTimeout(jump);
+        }, 500);
+    }
+    
+    function oneKeyCopy() {
+        clipboard.writeText(commandDiv.innerHTML);
+        alert("复制成功！\n若在淘宝客户端中没有相应提示请手动复制上面的淘口令。");
+    }
+
+
+</script>
+
+</html>
