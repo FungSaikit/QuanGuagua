@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+</head>
+<style type="text/css">
+
+    .tableline {
+        display: flex;
+    }
+
+    .tableline div {
+        width: 1rem;
+        flex-grow: 1;
+        text-align: center;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        background-color: #fff;
+        border-collapse: collapse;
+    }
+
+    tr {
+        height: 2rem;
+        line-height: 2rem;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+
+    td {
+        width: 50%;
+        color: gray;
+        font-size: 1rem;
+    }
+
+    .fanstitle {
+        position: fixed;
+        top: 2.5rem;
+    }
+
+    .bottomnotice {
+        text-align: center;
+        font-size: 0.8rem;
+        color: gray;
+        height: 2rem;
+        line-height: 2rem;
+    }
+
+</style>
+<body>
+
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" alt="" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        我的粉丝
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div class="placeholder_low"></div>
+<div class="placeholder"></div>
+
+<div class="tableline fanstitle">
+    <div>粉丝名</div>
+    <div>关注时间</div>
+</div>
+
+<table id="fans">
+
+    <tbody>
+    <tr v-for="item in fans">
+        <td>{{item.name}}</td>
+        <td>{{item.time}}</td>
+    </tr>
+    </tbody>
+
+</table>
+
+<div class="bottomnotice">正在加载中，请稍后</div>
+
+</body>
+
+<script type="text/javascript">
+
+    var fans = new Vue({
+        el: "#fans",
+        data: {
+            fans: [
+                {name: "叶宝升", time: "2017.11.1"},
+                {name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"}, {
+                    name: "叶宝升",
+                    time: "2017.11.1"
+                }, {name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"}, {
+                    name: "叶宝升",
+                    time: "2017.11.1"
+                }, {name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"}, {
+                    name: "叶宝升",
+                    time: "2017.11.1"
+                }, {name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"}, {
+                    name: "叶宝升",
+                    time: "2017.11.1"
+                }, {name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"},
+                {name: "叶宝升", time: "2017.11.1"},
+                {name: "叶宝升", time: "2017.11.1"},
+                {name: "叶宝升", time: "2017.11.1"}
+            ]
+        }
+    })
+
+</script>
+
+
+<script type="text/javascript">
+
+    function getDocumentTop() {
+        var scrollTop, bodyScrollTop = 0, documentScrollTop = 0;
+        if (document.body) {
+            bodyScrollTop = document.body.scrollTop;
+        }
+        if (document.documentElement) {
+            documentScrollTop = document.documentElement.scrollTop;
+        }
+        scrollTop = (bodyScrollTop > documentScrollTop) ? bodyScrollTop : documentScrollTop;
+        return scrollTop;
+    }
+
+    //可视窗口高度
+    function getWindowHeight() {
+        windowHeight = document.compatMode == 'CSS1Compat' ? document.documentElement.clientHeight : document.body.clientHeight;
+        return windowHeight;
+    }
+
+    //滚动条滚动高度
+    function getScrollHeight() {
+        var scrollHeight = 0, bodyScrollHeight = 0, documentScrollHeight = 0;
+        if (document.body) {
+            bodyScrollHeight = document.body.scrollHeight;
+        }
+        if (document.documentElement) {
+            documentScrollHeight = document.documentElement.scrollHeight;
+        }
+        scrollHeight = (bodyScrollHeight > documentScrollHeight) ? bodyScrollHeight : documentScrollHeight;
+        return scrollHeight;
+    }
+
+    window.onscroll = function () {
+        if (getScrollHeight() == getWindowHeight() + getDocumentTop()) {
+
+            setTimeout(function () {
+
+                if (getScrollHeight()>1500) {/*如果到最后了*/
+                    document.getElementsByClassName("bottomnotice")[0].innerHTML = "已经到底了";
+                } else {
+                    fans.fans.push({name: "叶宝升", time: "2017.11.1"}, {name: "叶宝升", time: "2017.11.1"}, {
+                        name: "叶宝升",
+                        time: "2017.11.1"
+                    },{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"},{name: "叶宝升", time: "2017.11.1"})
+                }
+            }, 2000);
+
+            if (getScrollHeight()>1000) {
+                document.getElementsByClassName("bottomnotice")[0].innerHTML = "已经到底了";
+            }
+        }
+    }
+
+</script>
+
+</html>
