@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <style type="text/css">
+
+        .inputblock {
+            font-size: 0.8rem;
+            color: darkred;
+        }
+
+        .orderlist_input {
+            width: 80%;
+            height: 2rem;
+            border: 1px solid #f38200;
+            margin: 0.5rem auto;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .noticeblock {
+            font-size: 0.8rem;
+            color: darkred;
+            padding: 1rem;
+        }
+
+        .jumpwindow_middle{
+            color: darkred;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" alt="" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        提交订单号
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div class="placeholder_low"></div>
+
+<div class="block inputblock" style="text-align: center;">
+    <input class="orderlist_input" type="text" placeholder="请粘贴订单号">
+    <div>可复制淘宝订单号至上面订单号输入框</div>
+</div>
+
+<div class="block noticeblock">
+    奖励规则：只要在本平台领券下单，都有积分奖励，可在积分商城兑换微信现金红包，100积分=1元，不同商品的积分奖励额度不同，具体积分奖励以实际到账为准 <br>
+    温馨提示：确认收货后再提交订单号，积分当天即可到账 <br>
+    <a href="javascript:void(0)" onclick="document.getElementById('order_help').hidden = false">如何获取订单号？点此查看</a>
+</div>
+
+<div class="jumpwindow" id="order_help" hidden>
+    <div class="jumpwindow_middle">
+        <span>订单编号可以在手机淘宝APP</span>
+        <br>
+        <span>订单详情中找到哦</span>
+        <br>
+        <span>—— 详细如下 ——</span>
+        <img style="width: 95%;" src="./IMG/user/upload_help.jpeg">
+        <button class="orangeButton" onclick="this.parentNode.parentNode.hidden = true;">确定</button>
+    </div>
+</div>
+
+</body>
+</html>

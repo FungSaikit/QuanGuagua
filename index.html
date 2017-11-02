@@ -12,10 +12,6 @@
 </head>
 <style type="text/css">
 
-    .swiper-pagination-bullet-active {
-        opacity: 1;
-        background: #f38200;
-    }
 
 </style>
 <body>
@@ -25,7 +21,7 @@
         <div class="searchbar">
             <img src="IMG/searchbar/logo.png" alt="" class="searchbar_button">
             <div class="searchbar_middle">
-                <img src="IMG/searchbar/search_black.png" alt="" class="searchbar_middle_img">
+                <img src="IMG/searchbar/search_black.png" class="searchbar_middle_img">
                 <input class="searchbar_middle_input" type="text" placeholder="请输入关键词搜索">
                 <button class="searchbar_middle_button">搜索</button>
             </div>
@@ -44,83 +40,561 @@
         </div>
 
         <div id="page_home_content">
-            <div class="top_classes">
+            <div class="top_classes block">
 
-                <div class="top_class top_class_selected">新券速抢</div>
-                <div class="top_class">9.9包邮</div>
-                <div class="top_class">19.9特价</div>
-                <div class="top_class">人气商品</div>
+                <div class="top_class" :class="{top_class_selected: classTabs[0]}" @click="switchToClassTab(0)">新券速抢
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[1]}" @click="switchToClassTab(1)">9.9包邮
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[2]}" @click="switchToClassTab(2)">19.9特价
+                </div>
+                <div class="top_class" :class="{top_class_selected: classTabs[3]}" @click="switchToClassTab(3)">人气商品
+                </div>
 
             </div>
 
-            <div class="classes">
-                <div class="class">
-                    <img src="./IMG/class/1-1.png" alt="">
-                    <div>女装</div>
+            <div class="newcoupon_tab" :class="{hidden: !classTabs[0]}">
+                <div class="classes block">
+                    <div class="class">
+                        <img src="./IMG/class/1-1.png" alt="">
+                        <div>女装</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-2.png" alt="">
+                        <div>男装</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-3.png" alt="">
+                        <div>内衣</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-4.png" alt="">
+                        <div>化妆护肤</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-5.png" alt="">
+                        <div>配饰</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-6.png" alt="">
+                        <div>鞋品</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-7.png" alt="">
+                        <div>箱包</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-8.png" alt="">
+                        <div>食品</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-9.png" alt="">
+                        <div>母婴</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-10.png" alt="">
+                        <div>居家</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-11.png" alt="">
+                        <div>运动</div>
+                    </div>
+                    <div class="class">
+                        <img src="IMG/class/1-12.png" alt="">
+                        <div>数码</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-13.png" alt="">
+                        <div>家电</div>
+                    </div>
+                    <div class="class">
+                        <img src="./IMG/class/1-14.png" alt="">
+                        <div>其他</div>
+                    </div>
                 </div>
-                <div class="class">
-                    <img src="./IMG/class/1-2.png" alt="">
-                    <div>男装</div>
+
+                <div class="goodcoupon block">
+                    <div class="blocktitle">
+                        <img class="blocktitle_img" src="./IMG/blocktitle/hot.png">
+                        <span>好券精选</span>
+                    </div>
+
+                    <div class="couponswiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                                <div class="swiperbox_in3">
+                                    <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                                    <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                    <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                                    <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="class">
-                    <img src="./IMG/class/1-3.png" alt="">
-                    <div>内衣</div>
+
+
+                <div class="newcoupon block">
+                    <div class="blocktitle">
+                        <img class="blocktitle_img" src="./IMG/blocktitle/new.png">
+                        <span>好券直播·每日10点上新</span>
+                    </div>
+                    <div class="coupons">
+                        <div class="coupon">
+                            <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                            <div class="coupon_middle">
+                                <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                <div class="coupon_down">
+                                    <del class="originalprice">¥ 888</del>
+                                    <span class="coupon_salenumber">销量:1688</span>
+                                    <br>
+                                    <span class="couponprice">券后价:¥800</span>
+                                </div>
+                            </div>
+                            <div class="coupon_right">
+                                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                                <div class="offprice">88</div>
+                            </div>
+                        </div>
+
+                        <div class="coupon">
+                            <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                            <div class="coupon_middle">
+                                <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                <div class="coupon_down">
+                                    <del class="originalprice">¥ 888</del>
+                                    <span class="coupon_salenumber">销量:1688</span>
+                                    <br>
+                                    <span class="couponprice">券后价:¥800</span>
+                                </div>
+                            </div>
+                            <div class="coupon_right">
+                                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                                <div class="offprice">188</div>
+                            </div>
+                        </div>
+
+                        <div class="coupon">
+                            <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                            <div class="coupon_middle">
+                                <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                <div class="coupon_down">
+                                    <del class="originalprice">¥ 888</del>
+                                    <span class="coupon_salenumber">销量:1688</span>
+                                    <br>
+                                    <span class="couponprice">券后价:¥800</span>
+                                </div>
+                            </div>
+                            <div class="coupon_right">
+                                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                                <div class="offprice">18888</div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                <div class="class">
-                    <img src="./IMG/class/1-4.png" alt="">
-                    <div>化妆护肤</div>
-                </div>
-                <div class="class">
-                    <img src="./IMG/class/1-5.png" alt="">
-                    <div>配饰</div>
-                </div>
-                <div class="class">
-                    <img src="./IMG/class/1-6.png" alt="">
-                    <div>鞋品</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-7.png" alt="">
-                    <div>箱包</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-8.png" alt="">
-                    <div>食品</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-9.png" alt="">
-                    <div>母婴</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-10.png" alt="">
-                    <div>居家</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-11.png" alt="">
-                    <div>运动</div>
-                </div>
-                <div class="class">
-                    <img src="IMG/class/1-12.png" alt="">
-                    <div>数码</div>
-                </div>
-                <div class="class">
-                    <img src="./IMG/class/1-13.png" alt="">
-                    <div>家电</div>
-                </div>
-                <div class="class">
-                    <img src="./IMG/class/1-14.png" alt="">
-                    <div>其他</div>
-                </div>
+
+                <div class="placeholder"></div>
             </div>
+
+
         </div>
+
+        <div class="ninepointnine_tab block" :class="{hidden: !classTabs[1]}">
+            <div class="coupons">
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">9块9的灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">188</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="nineteenpointnine_tab block" :class="{hidden: !classTabs[2]}">
+            <div class="coupons">
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">19块9的灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">188</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
+        <div class="hotsale block" :class="{hidden: !classTabs[3]}">
+            <div class="coupons">
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">人气商品的灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">88</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">188</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+                <div class="coupon">
+                    <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                    <div class="coupon_middle">
+                        <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="coupon_down">
+                            <del class="originalprice">¥ 888</del>
+                            <span class="coupon_salenumber">销量:1688</span>
+                            <br>
+                            <span class="couponprice">券后价:¥800</span>
+                        </div>
+                    </div>
+                    <div class="coupon_right">
+                        <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                        <div class="offprice">18888</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="placeholder"></div>
+        </div>
+
 
     </div>
 
     <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
-        这里是搜索页
+        <img class="searchbackground" src="./IMG/search/search_background.png">
+        <div class="searchbar_div">
+            <div class="searchbar_outer">
+                <img src="./IMG/searchbar/search_black.png"  class="searchbar_middle_img">
+                <input type="text" class="searchbar_middle_input">
+                <button class="search_button" onclick="alert('温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索</button>
+            </div>
+        </div>
+
+        <span class="search_alert" onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
     </div>
 
     <div class="page" id="page_2" :class="{hidden: !tabs[2]}">
-        这里是个人中心
+        <div class="userinfo">
+            <span style="height: 2.5rem; line-height: 2.5rem;">个人中心</span>
+            <div class="icon_div">
+                <img src="./IMG/demopic/icon.jpg" class="usericon">
+            </div>
+            <div class="username">Jack Fung</div>
+            <div class="userid">(id: 13316302055)</div>
+            <div class="usermenu">
+                <div class="usermenu_option">
+                    <div><img class="usermenu_img" src="./IMG/user/sign.png"></div>
+                    <span>点击签到</span>
+                </div>
+                <div class="usermenu_option">
+                    <div><img class="usermenu_img" src="./IMG/user/score.png"></div>
+
+                    <span>我的积分</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="partner" onclick="window.location.href = 'partner.html'">
+            合伙人收益 >
+        </div>
+
+        <div style="margin-top: 0.5rem">
+            <div class="tableline" onclick="window.location.href = 'uploadOrder.html'">
+                <img class="tableline_img" src="./IMG/user/upload.png">
+                <span>提交订单号</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+            <div class="tableline">
+                <img class="tableline_img" src="./IMG/user/myfans.png">
+                <span>我的粉丝</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+            <div class="tableline">
+                <img class="tableline_img" src="./IMG/user/scoreshop.png">
+                <span>积分商城 (开发中)</span>
+                <img src="./IMG/user/enter.png" class="tableenter">
+            </div>
+        </div>
+
     </div>
 
     <div class="bottombar">
@@ -150,6 +624,10 @@
 </div>
 
 <script type="text/javascript">
+    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
+    for (var i = 0; i < swiperboxImg.length; i++) {
+        swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
+    }
 
     window.onload = function () {
         var swiper = document.getElementsByClassName("swiper-container")[0];
@@ -157,9 +635,16 @@
 
         var topSwiper = new Swiper('.swiper-container', {
             loop: true,
+            autoplay: 5000,
+            pagination: '.swiper-pagination',
+            autoplayDisableOnInteraction: true
+        });
+
+        var goodCouponSwiper = new Swiper('.couponswiper-container', {
+            loop: true,
             autoplay: 3000,
-            pagination: '.swiper-pagination'
-        })
+            autoplayDisableOnInteraction: true
+        });
     }
 
 
@@ -175,16 +660,36 @@
                 true,
                 false,
                 false
-            ]
+            ],
+            classTabs: [
+                true,
+                false,
+                false,
+                false
+            ],
+            personalInfo: {
+                icon: "",
+                username: "JackFung",
+                userid: "13316302055",
+                isSigned: true,
+                signDate: "10",
+                score: "9876"
+            }
         },
         methods: {
             switchToTab: function (id) {
                 for (var i = 0; i < this.tabs.length; i++) {
                     this.tabs.splice(i, 1, i == id);
                 }
+            },
+            switchToClassTab: function (id) {
+                for (var i = 0; i < this.classTabs.length; i++) {
+                    this.classTabs.splice(i, 1, i == id);
+                }
             }
+
         }
-    })
+    });
 
 </script>
 

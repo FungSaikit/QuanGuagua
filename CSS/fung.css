@@ -35,13 +35,14 @@ input {
 }
 
 .bottombar {
-    background-color: #fff;
+    background-color: #f9f9f9;
     height: 3rem;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
     display: flex;
+    z-index: 100;
 }
 
 .placeholder {
@@ -96,7 +97,6 @@ input {
 
 .bottombar_tab {
     display: inline-block;
-    background-color: #fff;
     color: gray;
     width: 10%;
     flex-grow: 1;
@@ -119,33 +119,41 @@ input {
     height: 100%;
 }
 
+.swiper-pagination-bullet-active {
+    background: #f38200 !important;
+}
+
+.block {
+    margin-top: 0.2rem;
+    background-color: #fff;
+    border-bottom: 1px lightgray solid;
+}
+
 .top_classes {
     width: 100%;
-    height: 2rem;
-    line-height: 2rem;
-    background-color: #fff;
+    height: 2.5rem;
+    line-height: 2.5rem;
     display: flex;
+    margin-top: 0;
 }
 
 .top_class {
     display: inline-block;
     text-align: center;
     width: 10%;
-    height: 1.9rem;
+    height: 2.4rem;
     flex-grow: 1;
     border-bottom: 0.1rem white solid;
 }
 
-.top_class_selected{
+.top_class_selected {
     color: #f38200;
     border-bottom-color: #f38200;
 }
 
-.classes{
-    background-color: #fff;
+.classes {
     width: 100%;
     text-align: center;
-    margin-top: 0.5rem;
 }
 
 .classes:after {
@@ -159,11 +167,363 @@ input {
     font-size: 0.8rem;
     color: dimgray;
     float: left;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
 }
 
 .class img {
     width: auto;
     height: auto;
     max-width: 50%;
+}
+
+.blocktitle {
+    text-align: center;
+    color: #f38200;
+    border-bottom: 1px #eee solid;
+}
+
+.blocktitle_img {
+    height: 1rem;
+    width: 1rem;
+    vertical-align: middle;
+}
+
+.blocktitle span {
+    vertical-align: middle;
+}
+
+.goodcoupon {
+    overflow: hidden;
+}
+
+.couponswiper-container {
+    width: 100%;
+    position: relative;
+    padding: 0.2rem 0 0.2rem 0;
+    background-color: #f9f9f9;
+}
+
+.swiper-slide {
+    display: flex;
+}
+
+.swiperbox_in3 {
+    width: 32%;
+    background-color: #fff;
+    margin: 0 0 0 1%;
+    display: inline-block;
+    border-radius: 0.2rem;
+}
+
+.swiperbox_in3_img {
+    width: 100%;
+    border-top-left-radius: 0.2rem;
+    border-top-right-radius: 0.2rem;
+}
+
+.swiperbox_in3_title {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    vertical-align: middle;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.swiperbox_in3_price {
+    color: #f38200;
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    vertical-align: middle;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.swiperbox_in3_price span {
+    float: right;
+}
+
+.swiperbox_in3_alreadysale {
+    font-size: 0.7rem;
+    background-color: #eee;
+    color: gray;
+    border-radius: 0.5rem;
+    text-align: center;
+    margin: 0.1rem;
+}
+
+.coupons {
+    background-color: #f9f9f9;
+    overflow:hidden;
+}
+
+.coupon {
+    height: 6rem;
+    display: flex;
+    background-color: #fff;
+    width: 100%;
+    margin-top: 0.2rem;
+}
+
+.coupon_img {
+    height: 5.6rem;
+    width: 5.6rem;
+    margin: 0.2rem;
+}
+
+.coupon_middle {
+    flex-grow: 1;
+}
+
+.coupon_right_img {
+    height: 6rem;
+}
+
+.coupon_title {
+    font-size: 0.8rem;
+    height: 2rem;
+    line-height: 2rem;
+    flex-grow: 1;
+    color: dimgray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    vertical-align: middle;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.originalprice {
+    font-size: 0.8rem;
+    line-height: 2rem;
+}
+
+.couponprice {
+    line-height: 0.8rem;
+    color: #f38200;
+}
+
+.offprice {
+    width: 4rem;
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+    float: right;
+    z-index: 10;
+    display: inline-block;
+    position: relative;
+    left: 5rem;
+    bottom: 2rem;
+}
+
+.coupon_salenumber {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.userinfo {
+    background-color: #eb9c01;
+    width: 100%;
+    height: 15rem;
+    text-align: center;
+    color: #fff;
+}
+
+.icon_div {
+    height: 6rem;
+    line-height: 6rem;
+    width: 100%;
+    text-align: center;
+}
+
+.usericon {
+    height: 4.5rem;
+    width: 4.5rem;
+    vertical-align: middle;
+    border: 0.1rem white solid;
+    border-radius: 2.3rem;
+}
+
+.username {
+    height: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.userid {
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.8rem;
+}
+
+.usermenu {
+    display: flex;
+    flex-direction: row;
+    height: 4rem;
+    width: 100%;
+}
+
+.usermenu_option {
+    height: 100%;
+    width: 10%;
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.usermenu_img {
+    margin-top: 1rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.tableline {
+    background-color: #fff;
+    width: 100%;
+    height: 3rem;
+    line-height: 3rem;
+    border-bottom: 1px lightgray solid;
+}
+
+.tableenter {
+    height: 1rem;
+    width: 1rem;
+    margin: 1rem;
+    float: right;
+}
+
+.tableline_img {
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: auto 0.5rem;
+    vertical-align: middle;
+}
+
+.tableline span {
+    vertical-align: middle;
+}
+
+.searchbackground {
+    width: 100%;
+}
+
+.searchbar_div {
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+}
+
+.searchbar_outer {
+    height: 2rem;
+    width: 90%;
+    background-color: #fff;
+    position: relative;
+    bottom: 5rem;
+    display: inline-flex;
+    border-radius: 2rem;
+    border-right: 1px gray solid;
+    border-bottom: 1px gray solid;
+    padding-left: 0.5rem;
+}
+
+.search_button {
+    width: 3rem;
+    height:2rem;
+    color: #fff;
+    background-color: #f00;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+
+.hotsearch {
+    color: dimgray;
+    font-size: 0.8rem;
+    padding: 1rem;
+}
+
+.search_alert {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 4rem;
+    color: blue;
+    font-size: 0.8rem;
+}
+
+.partner {
+    display: inline-block;
+    position: relative;
+    bottom: 8rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 2rem;
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    left: 70%;
+}
+
+.navigationbar {
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    background-color: #f38200;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.navigationbar_middle {
+    flex-grow: 1;
+    text-align:center;
+}
+
+.navigationbar_button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.5rem 0.5rem;
+}
+
+.jumpwindow {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.jumpwindow_middle {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 16rem;
+    height: 28rem;
+    text-align: center;
+}
+
+.orangeButton {
+    height:2rem;
+    width: 5rem;
+    border-radius: 0.5rem;
+    background-color: #f38200;
+    color: #fff;
 }

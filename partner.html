@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+    <style type="text/css">
+
+        .income_div {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .div_in2 {
+            width: 1rem;
+            flex-grow: 1;
+            text-align: center;
+            line-height: 2rem;
+        }
+
+        .div_in2_top {
+            font-size: 0.8rem;
+            color: gray;
+        }
+
+        .dateselector {
+            display: flex;
+            background-color: #fff;
+            margin-top: 0.3rem;
+            border-bottom: 1px lightgray solid;
+            height: 2.5rem;
+        }
+
+        .dateoption {
+            width: 1rem;
+            height: 2.4rem;
+            line-height: 2.4rem;
+            border-bottom: 0.1rem #fff solid;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .dateoption_selected {
+            color: #f38200;
+            border-bottom-color: #f38200;
+        }
+
+        .statistic_div {
+            display: flex;
+            flex-direction: row;
+            margin-top: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        合伙人收益
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div class="placeholder"></div>
+
+<div class="tableline">
+    <img src="./IMG/user/partner.png" class="tableline_img">
+    <span>&nbsp粉丝合伙人</span>
+    <img src="./IMG/user/enter.png" class="tableenter">
+</div>
+
+<div class="block" style="height: 4rem;">
+
+    <div style="font-size: 0.8rem; color: gray; line-height: 1.5rem">&nbsp可提现金额</div>
+
+    <div style="color: #f38200; font-size: 1.2rem; line-height: 2rem;">&nbsp¥ 0
+        <button class="orangeButton" style="float: right;width: 3rem; margin-right: 0.5rem;">提现</button>
+    </div>
+
+</div>
+
+<div class="block income_div" style="display: flex">
+
+    <div class="div_in2">
+        <div class="div_in2_top">本月结算预估收入</div>
+        <div class="div_in2_bottom">¥ 0.00</div>
+    </div>
+    <div class="div_in2">
+        <div class="div_in2_top">上月结算预估收入</div>
+        <div class="div_in2_bottom">¥ 0.00</div>
+    </div>
+</div>
+<div class="tableline">
+    <img src="./IMG/user/orderlist.png" class="tableline_img">
+    <span>&nbsp订单明细</span>
+    <img src="./IMG/user/enter.png" class="tableenter">
+</div>
+
+<div class="block income_div">
+
+    <div class="div_in2">
+        <div class="div_in2_top">今日成交预估收入</div>
+        <div class="div_in2_bottom">¥ 0.00</div>
+    </div>
+    <div class="div_in2">
+        <div class="div_in2_top">今日成交笔数</div>
+        <div class="div_in2_bottom">0</div>
+    </div>
+
+</div>
+
+<div id="statistic">
+    <div class="dateselector">
+        <div class="dateoption" :class="{dateoption_selected: option[0]}" @click="selectOption(0)">今日</div>
+        <div class="dateoption" :class="{dateoption_selected: option[1]}" @click="selectOption(1)">昨日</div>
+        <div class="dateoption" :class="{dateoption_selected: option[2]}" @click="selectOption(2)">近7日</div>
+        <div class="dateoption" :class="{dateoption_selected: option[3]}" @click="selectOption(3)">近30日</div>
+    </div>
+    <div id="box0" :class="{hidden: !option[0]}">
+        <!--今天的数据-->
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+        </div>
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="box1" :class="{hidden: !option[1]}">
+        <!--昨日的数据-->
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+        </div>
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+        </div>
+    </div>
+    <div id="box2" :class="{hidden: !option[2]}">
+        <!--近7天的数据-->
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+        </div>
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+        </div>
+    </div>
+    <div id="box3" :class="{hidden: !option[3]}">
+        <!--近30天的数据-->
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献收入</div>
+                <div class="div_in2_bottom">¥ 0.00</div>
+            </div>
+        </div>
+        <div class="block statistic_div">
+            <div class="div_in2">
+                <div class="div_in2_top">自身贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+            <div class="div_in2">
+                <div class="div_in2_top">粉丝合伙人贡献笔数</div>
+                <div class="div_in2_bottom">0</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+
+    var statistic = new Vue({
+        el: "#statistic",
+        data : {
+            option: [
+                true,
+                false,
+                false,
+                false
+            ]
+        },
+        methods: {
+            selectOption: function (id) {
+                for (var i = 0; i<this.option.length; i++) {
+                    this.option.splice(i, 1, i == id);
+                }
+            }
+        }
+    })
+
+</script>
+
+
+</html>

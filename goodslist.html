@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+</head>
+<style type="text/css">
+
+    .selector {
+        height: 2.5rem;
+        width: 100%;
+        position: fixed;
+        top: 2.5rem;
+        left: 0;
+        background-color: #fff;
+        display: flex;
+        z-index: 100;
+    }
+
+    .selectoroption {
+        width: 1rem;
+        flex-grow: 1;
+        text-align: center;
+        line-height: 2.4rem;
+        border-bottom: 0.1rem #fff solid;
+        font-size: 0.8rem;
+        color: dimgray;
+    }
+
+    .selectoroption_selected {
+        color: #f38200;
+        border-bottom-color: #f38200;
+    }
+
+    .trangle {
+        font-size: 0.5rem;
+    }
+
+</style>
+<body>
+
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        商品列表
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div id="goods">
+
+    <div class="placeholder_low"></div>
+    <div class="placeholder_low"></div>
+
+    <div class="selector">
+
+        <div class="selectoroption" :class="{selectoroption_selected: order==0}" @click="changeOrder(0)">默认</div>
+        <div class="selectoroption" :class="{selectoroption_selected: order==1}" @click="changeOrder(1)">价格&nbsp<span
+                class="trangle">▲</span></div>
+        <div class="selectoroption" :class="{selectoroption_selected: order==2}" @click="changeOrder(2)">价格&nbsp<span
+                class="trangle">▼</span></div>
+        <div class="selectoroption" style="background-color:#f9f9f9; border-bottom-color: #f9f9f9; color: #000;"
+             @click="showSelector()">
+            分类:{{classname}}
+        </div>
+
+    </div>
+
+    <div id="goodslist">
+        <div class="coupon" v-for="item,index in goodslist">
+            <img class="coupon_img" :src="item.img">
+            <div class="coupon_middle">
+                <div class="coupon_title">{{index}}.{{item.title}}</div>
+                <div class="coupon_down">
+                    <del class="originalprice">¥ {{item.originPrice}}</del>
+                    <span class="coupon_salenumber">销量: {{item.saleNumber}}</span>
+                    <br>
+                    <span class="couponprice">券后价:¥ {{item.price}}</span>
+                    <div class="offprice">{{item.offPrice}}</div>
+                </div>
+            </div>
+            <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+        </div>
+
+    </div>
+
+
+    <div style="position: fixed; top: 4.8rem; z-index: 100;" class="classes block" id="classselector" :class="{hidden: classHidden}">
+        <div class="class" @click="changeClass(0)">
+            <img src="./IMG/class/1-14.png">
+            <div>全部</div>
+        </div>
+        <div class="class" @click="changeClass(1)">
+            <img src="./IMG/class/1-1.png">
+            <div>女装</div>
+        </div>
+        <div class="class" @click="changeClass(2)">
+            <img src="./IMG/class/1-2.png">
+            <div>男装</div>
+        </div>
+        <div class="class" @click="changeClass(3)">
+            <img src="./IMG/class/1-3.png">
+            <div>内衣</div>
+        </div>
+        <div class="class" @click="changeClass(4)">
+            <img src="./IMG/class/1-4.png">
+            <div>化妆护肤</div>
+        </div>
+        <div class="class" @click="changeClass(5)">
+            <img src="./IMG/class/1-5.png">
+            <div>配饰</div>
+        </div>
+        <div class="class" @click="changeClass(6)">
+            <img src="./IMG/class/1-6.png">
+            <div>鞋品</div>
+        </div>
+        <div class="class" @click="changeClass(7)">
+            <img src="IMG/class/1-7.png">
+            <div>箱包</div>
+        </div>
+        <div class="class" @click="changeClass(8)">
+            <img src="IMG/class/1-8.png">
+            <div>食品</div>
+        </div>
+        <div class="class" @click="changeClass(9)">
+            <img src="IMG/class/1-9.png">
+            <div>母婴</div>
+        </div>
+        <div class="class" @click="changeClass(10)">
+            <img src="IMG/class/1-10.png">
+            <div>居家</div>
+        </div>
+        <div class="class" @click="changeClass(11)">
+            <img src="IMG/class/1-11.png">
+            <div>运动</div>
+        </div>
+        <div class="class" @click="changeClass(12)">
+            <img src="IMG/class/1-12.png">
+            <div>数码</div>
+        </div>
+        <div class="class" @click="changeClass(13)">
+            <img src="./IMG/class/1-13.png">
+            <div>家电</div>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    var classSelecter = document.getElementById("classselector");
+
+    var goodlist = new Vue({
+        el: "#goods",
+        data: {
+            order: 0, /*0为默认排序，1为从小到大，2为从大到小*/
+            classification: 0,
+            classname: "全部",
+            classHidden: true,
+            goodslist: [
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title2我是title我是title我是title",
+                    saleNumber: 16888,
+                    originPrice: "8888", /*这是原价*/
+                    offPrice: "888", /*这是优惠额度*/
+                    price: "8000"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg",
+                    title: "我是title我是title我是title我是title",
+                    saleNumber: 1688,
+                    originPrice: "888", /*这是原价*/
+                    offPrice: "88", /*这是优惠额度*/
+                    price: "800"/*这是券后价*/
+                }
+            ]
+        },
+        methods: {
+            changeOrder: function (id) {
+                this.order = id;
+                /*通过this.order和this.classification向服务器获取相应数据*/
+            },
+            changeClass: function (id) {
+                this.classification = id;
+                this.classHidden = true;
+                switch (id) {
+                    case 0:
+                        this.classname = "全部";
+                        break;
+                    case 1:
+                        this.classname = "女装";
+                        break;
+                    case 2:
+                        this.classname = "男装";
+                        break;
+                    case 3:
+                        this.classname = "内衣";
+                        break;
+                    case 4:
+                        this.classname = "化妆";
+                        break;
+                    case 5:
+                        this.classname = "配饰";
+                        break;
+                    case 6:
+                        this.classname = "鞋品";
+                        break;
+                    case 7:
+                        this.classname = "箱包";
+                        break;
+                    case 8:
+                        this.classname = "食品";
+                        break;
+                    case 9:
+                        this.classname = "母婴";
+                        break;
+                    case 10:
+                        this.classname = "居家";
+                        break;
+                    case 11:
+                        this.classname = "运动";
+                        break;
+                    case 12:
+                        this.classname = "数码";
+                        break;
+                    case 13:
+                        this.classname = "家电";
+                        break;
+                    default:
+                        break;
+                }
+                /*通过this.order和this.classification向服务器获取相应数据*/
+
+            }
+            ,showSelector: function () {
+                this.classHidden = !this.classHidden;
+            }
+
+        }
+    });
+
+</script>
+
+</html>
