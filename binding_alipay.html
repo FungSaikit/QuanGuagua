@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+</head>
+
+<style type="text/css">
+
+    .tableline {
+        display: flex;
+    }
+
+    .tableline div {
+        width: 7rem;
+        text-align: right;
+    }
+
+    .tableline input {
+        flex-grow: 1;
+        font-size: 1rem;
+    }
+
+</style>
+<body>
+
+<div class="navigationbar">
+    <img src="./IMG/searchbar/back.png" alt="" class="navigationbar_button" onclick="history.go(-1)">
+    <div class="navigationbar_middle">
+        绑定支付宝
+    </div>
+    <div class="navigationbar_button"></div>
+</div>
+
+<div class="placeholder"></div>
+<div class="tableline">
+    <div>支付宝账号：</div>
+    <input id="alipayaccount" type="text" placeholder="(请填写支付宝账号)">
+</div>
+<div class="tableline">
+    <div>真实姓名：</div>
+    <input id="realname" type="text" placeholder="(请填写真实姓名)">
+</div>
+<div class="tableline">
+    <div>手机号码：</div>
+    <input id="phonenumber" type="text" placeholder="(请填写手机号码)">
+</div>
+<br>
+<div class="tableline" style="display: block; text-align: center;" onclick="uploadInfo()">
+    绑定
+</div>
+
+</body>
+
+<script type="text/javascript">
+
+    var alipayAccount = document.getElementById("alipayaccount");
+    var realName = document.getElementById("realname");
+    var phoneNumber = document.getElementById("phonenumber");
+
+    function uploadInfo() {
+        if (confirm("请确认以下信息是否正确:\n支付宝账号:\n" + alipayAccount.value + "\n真实姓名:\n" + realName.value + "\n手机号码:\n" + phoneNumber.value + "\n提交错误信息可能会导致转账失败。")) {
+            /*这里是ajax请求*/
+            alert("信息提交成功！");
+        }
+    }
+
+</script>
+
+</html>
