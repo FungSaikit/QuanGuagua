@@ -274,17 +274,26 @@
     </div>
 
     <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
-        <img class="searchbackground" src="./IMG/search/search_background.png">
-        <div class="searchbar_div">
-            <div class="searchbar_outer">
-                <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
-                <input type="text" class="searchbar_middle_input">
-                <button class="search_button"
-                        onclick="alert('温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索
-                </button>
+            <img class="searchbackground" src="./IMG/search/search_background.png">
+            <div class="searchbar_div">
+                <div class="searchbar_outer">
+                    <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
+                    <input type="text" class="searchbar_middle_input">
+                    <button class="search_button"
+                            onclick="">搜索
+                    </button>
+                </div>
             </div>
-        </div>
-
+            <div class="block" style="background: none;position: relative; bottom: 3rem; border-bottom: 0; padding: 2.5%;">
+                <span>&nbsp热门标签</span><br>
+                <div class="searchrecommend">男装男装</div>
+                <div class="searchrecommend">男装</div>
+                <div class="searchrecommend">男装男装男装</div>
+                <div class="searchrecommend">男装</div>
+                <div class="searchrecommend">男装男装男装男装</div>
+                <div class="searchrecommend">男装男装</div>
+                <div class="searchrecommend">男装</div>
+            </div>
         <span class="search_alert"
               onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
     </div>
@@ -448,9 +457,9 @@
     var lastTimeStatus = sessionStorage.getItem("lastTimeStatus");
     if (lastTimeStatus) {
         main.tabs = [
-            0==lastTimeStatus,
-            1==lastTimeStatus,
-            2==lastTimeStatus
+            0 == lastTimeStatus,
+            1 == lastTimeStatus,
+            2 == lastTimeStatus
         ]
     }
 

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+    <style type="text/css">
+        .selector_main {
+            width: 100%;
+            position: fixed;
+            top: 2.5rem;
+        }
+
+        .selector {
+            height: 3rem;
+            width: 100%;
+            display: flex;
+            border-bottom: 1px lightgray solid;
+            background-color: #fff;
+        }
+
+        .selector_option {
+            width: 1rem;
+            flex-grow: 1;
+            line-height: 2.9rem;
+            text-align: center;
+            border-bottom: 0.1rem #fbfbfb solid;
+        }
+
+        .selector_option1 {
+            width: 1rem;
+            flex-grow: 1;
+            line-height: 2.4rem;
+            text-align: center;
+            border-bottom: 0.1rem #f9f9f9 solid;
+        }
+
+        .selector_selected {
+            border-bottom-color: #f38200;
+            color: #f38200;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        #loadingpic {
+            width:10rem;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="navigationbar">
+        <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+        <div class="navigationbar_middle">
+            订单明细
+        </div>
+        <div class="navigationbar_button"></div>
+    </div>
+    <div class="selector_main">
+        <div class="selector">
+            <div class="selector_option" :class="{selector_selected: selectorTop==0}" @click="changeTop(0)">我的订单</div>
+            <div class="selector_option" :class="{selector_selected: selectorTop==1}" @click="changeTop(1)">贡献订单</div>
+        </div>
+        <div class="selector" style="height: 2.5rem;background-color:#f9f9f9;">
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==0}" @click="changeMiddle(0)">所有订单</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==1}" @click="changeMiddle(1)">已付款</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==2}" @click="changeMiddle(2)">已结算</div>
+            <div class="selector_option1" :class="{selector_selected: selectorMiddle==3}" @click="changeMiddle(3)">已失效</div>
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="placeholder" style="height: 8rem;"></div>
+        <!--<img id="loadingpic" src="./IMG/gif/loading.gif" alt="">-->
+    </div>
+
+    <div class="block" style="height: 1000rem;">
+
+
+
+    </div>
+    
+</div>
+
+</body>
+<script type="text/javascript">
+
+    var loadingPic = document.getElementById("loadingpic");
+
+    var main = new Vue({
+        el: "#main",
+        data: {
+            selectorTop: 0, /* 0 -> 我的订单, 1 -> 贡献订单 */
+            selectorMiddle: 0, /* 0 -> 所有订单, 1 -> 已付款, 2 -> 已结算, 3 -> 已失效 */
+            orderList: [
+                {
+                    img: "", /*订单图片*/
+                    title: "", /*商品标题*/
+                    orderNumber: "", /*订单号*/
+                    orderPrice: "", /*订单金额*/
+
+                }
+            ]
+        },
+        methods: {
+            changeTop: function (id) {
+                this.selectorTop = id;
+                /*用this.selectorTop和this.selectorMiddle请求数据*/
+            },
+            changeMiddle: function (id) {
+                this.selectorMiddle = id;
+                /*用this.selectorTop和this.selectorMiddle请求数据*/
+            }
+        }
+    });
+
+
+</script>
+</html>

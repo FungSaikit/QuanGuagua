@@ -95,6 +95,17 @@ input {
     padding-right: 0.25rem;
 }
 
+.searchrecommend {
+    height: 2rem;
+    line-height: 2rem;
+    background-color: #fff;
+    padding: 0 1rem;
+    display: inline-block;
+    text-align: center;
+    border-radius: 1rem;
+    margin: 0.2rem;
+}
+
 .bottombar_tab {
     display: inline-block;
     color: gray;
@@ -261,7 +272,7 @@ input {
 
 .coupons {
     background-color: #f9f9f9;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 .coupon {
@@ -437,7 +448,7 @@ input {
 
 .search_button {
     width: 3rem;
-    height:2rem;
+    height: 2rem;
     color: #fff;
     background-color: #f00;
     border-top-right-radius: 2rem;
@@ -488,7 +499,7 @@ input {
 
 .navigationbar_middle {
     flex-grow: 1;
-    text-align:center;
+    text-align: center;
 }
 
 .navigationbar_button {
@@ -522,7 +533,7 @@ input {
 }
 
 .orangeButton {
-    height:2rem;
+    height: 2rem;
     width: 5rem;
     border-radius: 0.5rem;
     background-color: #f38200;
