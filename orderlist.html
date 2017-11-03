@@ -43,12 +43,70 @@
             color: #f38200;
         }
 
-        .content {
-            text-align: center;
-        }
-
         #loadingpic {
             width:10rem;
+        }
+
+        .orderdetails_line {
+            display: flex;
+
+        }
+
+        .orderdetails_line img {
+            height: 3.5rem;
+            margin: 0.25rem;
+        }
+
+        .orderdetails_line_div {
+            color: dimgray;
+            line-height: 2rem;
+            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .block_in2 {
+            width: 1rem;
+            flex-grow: 1;
+            text-align: center;
+            line-height: 1.5rem;
+        }
+
+        .order_title {
+            font-size: 0.8rem;
+            color: dimgray;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .order_content {
+            font-size: 0.8rem;
+            color: black;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            vertical-align: middle;
+            white-space: normal;
+            word-break: break-all;
+        }
+
+        .title_black {
+            color: #000;
+            font-size: 1rem;
         }
 
     </style>
@@ -78,13 +136,49 @@
     <div class="content">
         <div class="placeholder" style="height: 8rem;"></div>
         <!--<img id="loadingpic" src="./IMG/gif/loading.gif" alt="">-->
+
+        <div class="block orderdetails" v-for="item in orderList">
+            <div class="orderdetails_line">
+                <img :src="item.img">
+                <div>
+                    <div class="orderdetails_line_div order_content">{{item.title}}</div>
+                    <div class="orderdetails_line_div">订单号: {{item.orderNumber}}</div>
+                </div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2">
+                    <div class="order_title">订单金额</div>
+                    <div class="order_content">¥ {{item.orderPrice}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">成交预估收入</div>
+                    <div class="order_content">¥ {{item.anticipateIncome}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">收入来源</div>
+                    <div class="order_content">{{item.orderSource}}</div>
+                </div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2">
+                    <div class="order_title">结算金额</div>
+                    <div class="order_content">¥ {{item.settlePrice}}</div>
+                </div>
+                <div class="block_in2">
+                    <div class="order_title">结算预估收入</div>
+                    <div class="order_content">¥ {{item.settleIncome}}</div>
+                </div>
+                <div class="block_in2"></div>
+            </div>
+            <div class="orderdetails_line">
+                <div class="block_in2 order_title">{{item.createDate}} 创建</div>
+                <div class="block_in2 order_title">{{item.payDate}} 付款</div>
+            </div>
+
+        </div>
     </div>
 
-    <div class="block" style="height: 1000rem;">
 
-
-
-    </div>
     
 </div>
 
@@ -100,11 +194,40 @@
             selectorMiddle: 0, /* 0 -> 所有订单, 1 -> 已付款, 2 -> 已结算, 3 -> 已失效 */
             orderList: [
                 {
-                    img: "", /*订单图片*/
-                    title: "", /*商品标题*/
-                    orderNumber: "", /*订单号*/
-                    orderPrice: "", /*订单金额*/
-
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
+                },
+                {
+                    img: "./IMG/demopic/img0.jpg", /*订单图片*/
+                    title: "MP/17 秋季新款运动风杠条元素拼色宽松ovsize带帽男长袖卫衣", /*商品标题*/
+                    orderNumber: "12987374958127462", /*订单号*/
+                    orderPrice: "888", /*订单金额*/
+                    anticipateIncome: "8.8", /*结算预估收入*/
+                    orderSource: "JackFung 13316302055", /*订单来源*/
+                    settlePrice: "888", /*结算金额*/
+                    settleIncome: "8.8", /*结算预估收入*/
+                    createDate: "2017-10-17 17:41:50", /*创建时间*/
+                    payDate: "2017-10-17 17:41:50" /*付款时间*/
                 }
             ]
         },

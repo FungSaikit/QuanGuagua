@@ -71,20 +71,26 @@
     </div>
 
     <div id="goodslist">
+
         <div class="coupon" v-for="item,index in goodslist">
             <img class="coupon_img" :src="item.img">
             <div class="coupon_middle">
-                <div class="coupon_title">{{index}}.{{item.title}}</div>
+                <div class="coupon_title">{{item.title}}</div>
                 <div class="coupon_down">
                     <del class="originalprice">¥ {{item.originPrice}}</del>
-                    <span class="coupon_salenumber">销量: {{item.saleNumber}}</span>
+                    <span class="coupon_salenumber">销量:{{item.saleNumber}}</span>
                     <br>
-                    <span class="couponprice">券后价:¥ {{item.price}}</span>
-                    <div class="offprice">{{item.offPrice}}</div>
+                    <span class="couponprice" v-if="item.offPrice != 0">券后价:{{item.price}}</span>
+                    <span class="couponprice" v-if="item.offPrice == 0">价格:{{item.price}}</span>
+
                 </div>
             </div>
-            <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+            <div class="coupon_right_img"  v-if="item.offPrice != 0">
+                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                <div class="offprice">{{item.offPrice}}</div>
+            </div>
         </div>
+
     </div>
 
 
@@ -169,8 +175,8 @@
                     title: "我是title我是title我是title我是title",
                     saleNumber: 1688,
                     originPrice: "888", /*这是原价*/
-                    offPrice: "88", /*这是优惠额度*/
-                    price: "800"/*这是券后价*/
+                    offPrice: "0", /*这是优惠额度*/
+                    price: "888"/*这是券后价*/
                 },
                 {
                     img: "./IMG/demopic/img0.jpg",
