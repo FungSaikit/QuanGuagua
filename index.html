@@ -274,28 +274,52 @@
     </div>
 
     <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
-            <img class="searchbackground" src="./IMG/search/search_background.png">
-            <div class="searchbar_div">
-                <div class="searchbar_outer">
-                    <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
-                    <input type="text" class="searchbar_middle_input">
-                    <button class="search_button"
-                            onclick="">搜索
-                    </button>
-                </div>
+        <img class="searchbackground" src="./IMG/search/search_background.png">
+        <div class="searchbar_div">
+            <div class="searchbar_outer">
+                <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
+                <input type="text" class="searchbar_middle_input">
+                <button class="search_button"
+                        onclick="">搜索
+                </button>
             </div>
-            <div class="block" style="background: none;position: relative; bottom: 3rem; border-bottom: 0; padding: 2.5%;">
-                <span>&nbsp热门标签</span><br>
-                <div class="searchrecommend">男装男装</div>
-                <div class="searchrecommend">男装</div>
-                <div class="searchrecommend">男装男装男装</div>
-                <div class="searchrecommend">男装</div>
-                <div class="searchrecommend">男装男装男装男装</div>
-                <div class="searchrecommend">男装男装</div>
-                <div class="searchrecommend">男装</div>
-            </div>
+        </div>
         <span class="search_alert"
               onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
+        <div class="couponswiper-container1" style="position: relative; bottom: 4rem;">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                    <div class="swiperbox_in3">
+                        <img class="swiperbox_in3_img" src="./IMG/demopic/img0.jpg">
+                        <div class="swiperbox_in3_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                        <div class="swiperbox_in3_price">券后 <span>¥88.8</span></div>
+                        <div class="swiperbox_in3_alreadysale">已疯抢8888件</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block" style="background: none;position: relative; bottom: 4rem; border-bottom: 0; padding: 2.5%;">
+            <span>&nbsp热门标签</span><br>
+            <div class="searchrecommend">男装男装</div>
+            <div class="searchrecommend">男装</div>
+            <div class="searchrecommend">男装男装男装</div>
+            <div class="searchrecommend">男装</div>
+            <div class="searchrecommend">男装男装男装男装</div>
+            <div class="searchrecommend">男装男装</div>
+            <div class="searchrecommend">男装</div>
+        </div>
     </div>
 
     <div class="page" id="page_2" :class="{hidden: !tabs[2]}">
@@ -378,13 +402,16 @@
 
 <script type="text/javascript">
 
+    var status = document.getElementsByTagName("status");
+    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
+
     var main = new Vue({
         el: "#main",
         data: {
             tabs: [
                 true,
-                false,
-                false
+                true,
+                true
             ],
             classTabs: [
                 true,
@@ -408,6 +435,29 @@
                 for (var i = 0; i < this.tabs.length; i++) {
                     this.tabs.splice(i, 1, i == id);
                 }
+                if (id == 0) {
+                    var timeout = setTimeout(function () {
+                        topSwiper.startAutoplay();
+                        goodCouponSwiper.startAutoplay();
+                        goodCouponSwiper1.stopAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+
+                } else if (id == 1) {
+                    var timeout = setTimeout(function () {
+                        topSwiper.stopAutoplay();
+                        goodCouponSwiper.stopAutoplay();
+                        goodCouponSwiper1.startAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+                } else {
+                    var timeout = setTimeout(function () {
+                        topSwiper.stopAutoplay();
+                        goodCouponSwiper.stopAutoplay();
+                        goodCouponSwiper1.stopAutoplay();
+                        clearTimeout(timeout);
+                    }, 100);
+                }
             },
             switchToClassTab: function (id) {
                 for (var i = 0; i < this.classTabs.length; i++) {
@@ -429,30 +479,33 @@
         }
     });
 
-    var status = document.getElementsByTagName("status");
-    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
+    var swiper = document.getElementsByClassName("swiper-container")[0];
+    swiper.style.height = window.screen.width * 1 / 3 + "px";
+
+
     for (var i = 0; i < swiperboxImg.length; i++) {
         swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
     }
 
-    window.onload = function () {
-        var swiper = document.getElementsByClassName("swiper-container")[0];
-        swiper.style.height = window.screen.width * 1 / 3 + "px";
 
-        var topSwiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: 5000,
-            pagination: '.swiper-pagination',
-            autoplayDisableOnInteraction: true
-        });
+    var topSwiper = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: 5000,
+        pagination: '.swiper-pagination',
+        autoplayDisableOnInteraction: false
+    });
 
-        var goodCouponSwiper = new Swiper('.couponswiper-container', {
-            loop: true,
-            autoplay: 3000,
-            autoplayDisableOnInteraction: true
-        });
+    var goodCouponSwiper = new Swiper('.couponswiper-container', {
+        loop: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false
+    });
 
-    }
+    var goodCouponSwiper1 = new Swiper('.couponswiper-container1', {
+        loop: true,
+        autoplay: 3000,
+        autoplayDisableOnInteraction: false
+    });
 
     var lastTimeStatus = sessionStorage.getItem("lastTimeStatus");
     if (lastTimeStatus) {
@@ -460,6 +513,10 @@
             0 == lastTimeStatus,
             1 == lastTimeStatus,
             2 == lastTimeStatus
+        ]
+    } else {
+        main.tabs = [
+            true, false, false
         ]
     }
 

@@ -464,10 +464,12 @@ input {
 .search_alert {
     width: 100%;
     text-align: center;
-    position: fixed;
-    bottom: 4rem;
     color: blue;
     font-size: 0.8rem;
+    position: relative;
+    bottom: 5rem;
+    left: 80%;
+    z-index: 10;
 }
 
 .partner {
