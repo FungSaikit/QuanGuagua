@@ -152,27 +152,25 @@
                         <span>好券直播·每日10点上新</span>
                     </div>
                     <div class="coupons">
-                            <div class="coupon">
-                                <img class="coupon_img" src="./IMG/demopic/img0.jpg">
-                                <div class="coupon_middle">
-                                    <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
-                                    <div class="coupon_down">
-                                        <del class="originalprice">¥ 888</del>
-                                        <span class="coupon_salenumber">销量:1688</span>
-                                        <br>
-                                        <span class="couponprice">券后价:¥800</span>
+                        <div class="coupon">
+                            <img class="coupon_img" src="./IMG/demopic/img0.jpg">
+                            <div class="coupon_middle">
+                                <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
+                                <div class="coupon_down">
+                                    <del class="originalprice">¥ 888</del>
+                                    <span class="coupon_salenumber">销量:1688</span>
+                                    <br>
+                                    <span class="couponprice">券后价:¥800</span>
 
-                                    </div>
-                                </div>
-                                <div class="coupon_right_img">
-                                    <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
-                                    <div class="offprice">88</div>
                                 </div>
                             </div>
+                            <div class="coupon_right_img">
+                                <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                                <div class="offprice">88</div>
+                            </div>
+                        </div>
                     </div>
-
                 </div>
-
                 <div class="placeholder"></div>
             </div>
 
@@ -279,13 +277,16 @@
         <img class="searchbackground" src="./IMG/search/search_background.png">
         <div class="searchbar_div">
             <div class="searchbar_outer">
-                <img src="./IMG/searchbar/search_black.png"  class="searchbar_middle_img">
+                <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
                 <input type="text" class="searchbar_middle_input">
-                <button class="search_button" onclick="alert('温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索</button>
+                <button class="search_button"
+                        onclick="alert('温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索
+                </button>
             </div>
         </div>
 
-        <span class="search_alert" onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
+        <span class="search_alert"
+              onclick="alert('1、在手机淘宝复制宝贝标题\n2、在搜索框粘贴宝贝标题\n3、点击“搜索”\n温馨提示：没有优惠券时，建议继续复制淘口令下单，确认收货后在个人中心提交订单号，客服审核后会奖励相应的积分，积分可以兑换微信现金红包')">搜索提示</span>
     </div>
 
     <div class="page" id="page_2" :class="{hidden: !tabs[2]}">
@@ -362,33 +363,9 @@
 
 </div>
 
-<script type="text/javascript">
-    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
-    for (var i = 0; i < swiperboxImg.length; i++) {
-        swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
-    }
-
-    window.onload = function () {
-        var swiper = document.getElementsByClassName("swiper-container")[0];
-        swiper.style.height = window.screen.width * 1 / 3 + "px";
-
-        var topSwiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: 5000,
-            pagination: '.swiper-pagination',
-            autoplayDisableOnInteraction: true
-        });
-
-        var goodCouponSwiper = new Swiper('.couponswiper-container', {
-            loop: true,
-            autoplay: 3000,
-            autoplayDisableOnInteraction: true
-        });
-    }
-
-
-</script>
+<status style="display: none;">2</status>
 </body>
+
 
 <script type="text/javascript">
 
@@ -418,6 +395,7 @@
         },
         methods: {
             switchToTab: function (id) {
+                sessionStorage.setItem("lastTimeStatus", id);
                 for (var i = 0; i < this.tabs.length; i++) {
                     this.tabs.splice(i, 1, i == id);
                 }
@@ -441,6 +419,46 @@
             }
         }
     });
+
+    var status = document.getElementsByTagName("status");
+    var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
+    for (var i = 0; i < swiperboxImg.length; i++) {
+        swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
+    }
+
+    window.onload = function () {
+        var swiper = document.getElementsByClassName("swiper-container")[0];
+        swiper.style.height = window.screen.width * 1 / 3 + "px";
+
+        var topSwiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: 5000,
+            pagination: '.swiper-pagination',
+            autoplayDisableOnInteraction: true
+        });
+
+        var goodCouponSwiper = new Swiper('.couponswiper-container', {
+            loop: true,
+            autoplay: 3000,
+            autoplayDisableOnInteraction: true
+        });
+
+    }
+
+    var lastTimeStatus = sessionStorage.getItem("lastTimeStatus");
+    if (lastTimeStatus) {
+        main.tabs = [
+            0==lastTimeStatus,
+            1==lastTimeStatus,
+            2==lastTimeStatus
+        ]
+    }
+
+
+</script>
+
+<script type="text/javascript">
+
 
 </script>
 
