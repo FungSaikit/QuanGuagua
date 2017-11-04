@@ -532,10 +532,14 @@ input {
     text-align: center;
 }
 
-.orangeButton {
+.orange_button {
+    display: block;
+    text-align: center;
+    line-height: 2rem;
     height: 2rem;
     width: 5rem;
     border-radius: 0.5rem;
     background-color: #f38200;
     color: #fff;
+    margin: auto;
 }

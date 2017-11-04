@@ -121,7 +121,7 @@
     .tableenter {
         margin-right: 0;
     }
-    
+
     .jumpwindow_middle {
         color: darkred;
         font-size: 0.8rem;
@@ -143,7 +143,6 @@
         margin: 0.5rem auto;
         font-size: 0.9rem;
     }
-
 
 
 </style>
@@ -177,7 +176,8 @@
 
 <div class="block titleblock">
     原装奔驰汽车C180 C200L E200L E260 E300 GLK300遥控器钥匙电池
-    <div class="titleblock_price">券后价: ¥ 858 <span style="float: right; color: red; font-size: 0.8rem;">预计可赚：30</span></div>
+    <div class="titleblock_price">券后价: ¥ 858 <span style="float: right; color: red; font-size: 0.8rem;">预计可赚：30</span>
+    </div>
 </div>
 
 <div class="block priceblock">
@@ -197,7 +197,8 @@
     <br>
     <span id="command_div" class="command_div">复制整行￥fSyo0TJil2T￥</span>
     <span>或者</span>
-    <div class="orangeButton" onclick="oneKeyCopy()">一键复制</div>
+    <div class="orange_button" onclick="oneKeyCopy()">一键复制</div>
+    <span>若在淘宝客户端中没有相应提示请手动复制上面的淘口令。</span>
 </div>
 
 <div class="block recommendblock">
@@ -232,10 +233,13 @@
             clearTimeout(jump);
         }, 500);
     }
-    
+
     function oneKeyCopy() {
-        clipboard.writeText(commandDiv.innerHTML);
-        alert("复制成功！\n若在淘宝客户端中没有相应提示请手动复制上面的淘口令。");
+        var button = document.getElementsByClassName("orange_button")[0];
+        if (button.innerHTML == "一键复制") {
+            clipboard.writeText(commandDiv.innerHTML);
+        }
+        button.innerHTML = button.innerHTML == "一键复制" ? "已复制" : "一键复制";
     }
 
 
