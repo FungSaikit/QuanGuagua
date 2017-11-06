@@ -263,7 +263,7 @@ input {
     vertical-align: middle;
     white-space: normal;
     word-break: break-all;
-    margin-top: 0.5rem;
+    margin-top: 1.6rem;
 }
 
 .swiperbox_in3_price {
@@ -459,21 +459,24 @@ input {
 .searchbar_outer {
     height: 2rem;
     width: 90%;
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.1);
     position: relative;
-    bottom: 5rem;
+    bottom: 8rem;
     display: inline-flex;
     border-radius: 2rem;
     padding-left: 0.5rem;
+    border: 1px white solid;
 }
 
 .search_button {
     width: 3rem;
-    height: 2rem;
+    height: 1rem;
+    margin: 0.5rem 0;
     color: #fff;
-    background-color: #f00;
+    background-color: rgba(255, 255, 255, 0);;
     border-top-right-radius: 2rem;
     border-bottom-right-radius: 2rem;
+    border-left: 1px #fff solid;
 }
 
 .hotsearch {

@@ -281,11 +281,11 @@
     </div>
 
     <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
-        <img class="searchbackground" src="./IMG/search/search_background.png">
+        <img class="searchbackground" src="./IMG/search/search_background.jpeg">
         <div class="searchbar_div">
             <div class="searchbar_outer">
-                <img src="./IMG/searchbar/search_black.png" class="searchbar_middle_img">
-                <input type="text" class="searchbar_middle_input">
+                <img src="./IMG/searchbar/search_white.png" class="searchbar_middle_img">
+                <input type="text" class="searchbar_middle_input" style="background-color: rgba(0, 0, 0, 0); color: #fff;">
                 <button class="search_button"
                         onclick="">搜索
                 </button>
@@ -350,7 +350,7 @@
                 </div>
                 <div class="usermenu_option" v-if="personalInfo.isSigned">
                     <div><img class="usermenu_img" src="./IMG/user/sign.png"></div>
-                    <span>已签到 {{personalInfo.signDate}} 天</span>
+                    <span>已签到 {{personalInfo.signDate}} 次</span>
                 </div>
                 <div class="usermenu_option">
                     <div><img class="usermenu_img" src="./IMG/user/score.png"></div>
