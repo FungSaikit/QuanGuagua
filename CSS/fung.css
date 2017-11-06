@@ -226,6 +226,7 @@ input {
     display: inline-block;
     border-radius: 0.2rem;
     position: relative;
+    cursor: pointer;
 }
 
 .swiper_couponprice_bg {
