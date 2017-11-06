@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ab94ef0d-cc9f-4b2a-80ee-acf386dc0fb1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IMG/search/search_background.jpeg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/IMG/searchbar/search_white.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CSS/fung.css" afterPath="$PROJECT_DIR$/CSS/fung.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -23,8 +20,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="287" column="122" lean-forward="false" selection-start-line="287" selection-start-column="122" selection-end-line="287" selection-end-column="122" />
+            <state relative-caret-position="1632">
+              <caret line="283" column="80" lean-forward="true" selection-start-line="283" selection-start-column="8" selection-end-line="283" selection-end-column="80" />
               <folding>
                 <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -41,8 +38,8 @@
       <file leaf-file-name="fung.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CSS/fung.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="264" column="26" lean-forward="true" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
+            <state relative-caret-position="135">
+              <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -113,8 +110,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>积分商城</find>
-      <find>search</find>
       <find>table</find>
       <find>tableline</find>
       <find>提交订单</find>
@@ -142,7 +137,9 @@
       <find>swiper_couponprice_div</find>
       <find>search_backg</find>
       <find>rgba</find>
+      <find>swiperbox_in3_title</find>
       <find>searchbar_middle_input</find>
+      <find>swiperbox_in3</find>
     </findStrings>
     <replaceStrings>
       <replace>searchbar</replace>
@@ -373,12 +370,12 @@
       <workItem from="1509930764776" duration="36000" />
       <workItem from="1509931007358" duration="10636000" />
       <workItem from="1509955616895" duration="4000" />
-      <workItem from="1509960216486" duration="1282000" />
+      <workItem from="1509960216486" duration="2100000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113626000" />
+    <option name="totallyTimeSpent" value="114444000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1278" height="1080" extended-state="6" />
@@ -823,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="287" column="122" lean-forward="false" selection-start-line="287" selection-start-column="122" selection-end-line="287" selection-end-column="122" />
+        <state relative-caret-position="1632">
+          <caret line="283" column="80" lean-forward="true" selection-start-line="283" selection-start-column="8" selection-end-line="283" selection-end-column="80" />
           <folding>
             <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -839,8 +836,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CSS/fung.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="264" column="26" lean-forward="true" selection-start-line="264" selection-start-column="26" selection-end-line="264" selection-end-column="26" />
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
