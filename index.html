@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="CSS/swiper-3.4.2.min.css">
     <script type="text/javascript" src="./JavaScript/swiper-3.4.2.min.js"></script>
     <script type="text/javascript" src="./JavaScript/vue.js"></script>
+    <script type="text/javascript" src="./JavaScript/clipboard-polyfill.js"></script>
 </head>
 <style type="text/css">
 
@@ -32,7 +33,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img class="swiper_img" src="./IMG/swiper/img1.png">
+                    <img class="swiper_img" src="./IMG/swiper/img1.png" onclick="showActivityCode()">
                 </div>
             </div>
 
@@ -171,6 +172,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="loading">正在加载中</div>
                 <div class="placeholder"></div>
             </div>
 
@@ -214,7 +216,6 @@
                         <div class="offprice">88</div>
                     </div>
                 </div>
-
             </div>
 
             <div class="placeholder"></div>
@@ -394,9 +395,24 @@
 
     </div>
 
-</div>
+    <div class="activitycode_bg" hidden>
+        <img src="" class="activitycode_themepic">
+        <div class="activitycode_main">
+            <img src="./IMG/searchbar/close.png" alt="关闭" class="activitycode_close" onclick="hideActivityCode()">
+            <div class="activitycode_close" style="float: left"></div>
+            <div class="activitycode_title"></div>
+            <span>长按复制框内淘口令，打开手淘APP</span>
+            <br>
+            <span id="activity_content"></span>
+            <br>
+            <span id="activitycode_div" class="command_div"></span>
+            <span>或者</span>
+            <div class="orange_button" onclick="oneKeyCopy()">一键复制</div>
+            <span>若在淘宝客户端中没有相应提示请手动复制上面的淘口令。</span>
+        </div>
+    </div>
 
-<status style="display: none;">2</status>
+</div>
 </body>
 
 
@@ -520,10 +536,50 @@
         ]
     }
 
+    var activityCodeBlock = document.getElementsByClassName("activitycode_bg")[0];
+    var activityThemePic = document.getElementsByClassName("activitycode_themepic")[0];
+    var activityTitle = document.getElementsByClassName("activitycode_title")[0];
+    var activityCode = document.getElementById("activitycode_div");
+    var activityCodeContent = document.getElementById("activity_content");
+
+
+    function showActivityCode() {
+        activityThemePic.src = "./IMG/swiper/img1.png";/*顶部图片地址*/
+        activityTitle.innerHTML = "双十一红包疯抢";
+        activityCode.innerHTML = "复制整行￥fSyo0TJil2T￥";
+        activityCodeContent.innerHTML = "双十一活动现在开始啦";
+        activityCodeBlock.hidden = false;
+    }
+    
+    function hideActivityCode() {
+        activityCodeBlock.hidden = true;
+    }
+
+    function oneKeyCopy() {
+        var timeout;
+        var activityCodeDiv = document.getElementById("activitycode_div");
+        var button = document.getElementsByClassName("orange_button")[0];
+        if (button.innerHTML == "一键复制") {
+            clipboard.writeText(activityCodeDiv.innerHTML);
+            button.innerHTML = "已复制";
+            button.style.backgroundColor = "#f9b838";
+            timeout = setTimeout(function () {
+                button.innerHTML = "一键复制";
+                button.style.backgroundColor = "";
+                clearTimeout(timeout);
+            }, 3000);
+        } else if (button.innerHTML == "已复制") {
+            clearTimeout(timeout);
+            button.innerHTML = "一键复制";
+            button.style.backgroundColor = "";
+        }
+    }
+    
 
 </script>
 
 <script type="text/javascript">
+
 
 
 </script>

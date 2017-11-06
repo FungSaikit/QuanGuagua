@@ -128,16 +128,6 @@
         height: 14rem;
     }
 
-    .command_div {
-        width: 90%;
-        height: 3rem;
-        line-height: 3rem;
-        border: 1px darkred dotted;
-        margin: 0.5rem auto;
-        display: block;
-        border-radius: 0.5rem;
-    }
-
     .orangeButton {
         line-height: 2rem;
         margin: 0.5rem auto;
@@ -235,11 +225,22 @@
     }
 
     function oneKeyCopy() {
+        var timeout;
         var button = document.getElementsByClassName("orange_button")[0];
         if (button.innerHTML == "一键复制") {
             clipboard.writeText(commandDiv.innerHTML);
+            button.innerHTML = "已复制";
+            button.style.backgroundColor = "#f9b838";
+            timeout = setTimeout(function () {
+                button.innerHTML = "一键复制";
+                button.style.backgroundColor = "";
+                clearTimeout(timeout);
+            }, 3000);
+        } else if (button.innerHTML == "已复制") {
+            clearTimeout(timeout);
+            button.innerHTML = "一键复制";
+            button.style.backgroundColor = "";
         }
-        button.innerHTML = button.innerHTML == "一键复制" ? "已复制" : "一键复制";
     }
 
 
