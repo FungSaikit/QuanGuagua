@@ -151,6 +151,18 @@
                         </div>
                     </div>
                 </div>
+                <script type="text/javascript">
+
+                    var winWidth;
+                    if (window.innerWidth)
+                        winWidth = window.innerWidth;
+                    else if ((document.body) && (document.body.clientWidth))
+                        winWidth = document.body.clientWidth;
+                    var couponContainer = document.getElementsByClassName("couponswiper-container")[0];
+                    console.log(winWidth);
+                    couponContainer.style.width = winWidth + "px"
+
+                </script>
 
 
                 <div class="newcoupon block">
@@ -323,6 +335,16 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+            var winWidth;
+            if (window.innerWidth)
+                winWidth = window.innerWidth;
+            else if ((document.body) && (document.body.clientWidth))
+                winWidth = document.body.clientWidth;
+            var couponContainer = document.getElementsByClassName("couponswiper-container1")[0];
+            console.log(winWidth);
+            couponContainer.style.width = winWidth + "px";
+        </script>
         <div class="block" style="background: none;position: relative; bottom: 4rem; border-bottom: 0; padding: 2.5%;">
             <span>&nbsp热门标签</span><br>
             <div class="searchrecommend">男装男装</div>
