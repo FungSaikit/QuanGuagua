@@ -225,6 +225,25 @@ input {
     margin: 0 0 0 1%;
     display: inline-block;
     border-radius: 0.2rem;
+    position: relative;
+}
+
+.swiper_couponprice_bg {
+    width: 70%;
+    position: absolute;
+    bottom: 4.8rem;
+    left: 15%;
+}
+
+.swiper_couponprice_div {
+    position: absolute;
+    width: 100%;
+    bottom:4.8rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.9rem;
+    height: 1.2rem;
+    line-height: 1.2rem;
 }
 
 .swiperbox_in3_img {
@@ -243,6 +262,7 @@ input {
     vertical-align: middle;
     white-space: normal;
     word-break: break-all;
+    margin-top: 0.5rem;
 }
 
 .swiperbox_in3_price {
