@@ -95,7 +95,7 @@
 
     <div style="position: fixed; top: 4.8rem; z-index: 100;" class="classes block" id="classselector" :class="{hidden: classHidden}">
         <div class="class" @click="changeClass(0)">
-            <img src="./IMG/class/1-14.png">
+            <img src="./IMG/class/1-0.png">
             <div>全部</div>
         </div>
         <div class="class" @click="changeClass(1)">
@@ -149,6 +149,10 @@
         <div class="class" @click="changeClass(13)">
             <img src="./IMG/class/1-13.png">
             <div>家电</div>
+        </div>
+        <div class="class" @click="changeClass(14)">
+            <img src="./IMG/class/1-14.png">
+            <div>其他</div>
         </div>
 
     </div>
@@ -341,6 +345,9 @@
                         break;
                     case 13:
                         this.classname = "家电";
+                        break;
+                    case 14:
+                        this.classname = "其他";
                         break;
                     default:
                         break;
