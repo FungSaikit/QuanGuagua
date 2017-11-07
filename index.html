@@ -16,6 +16,12 @@
 
 </style>
 <body>
+<div id="loading_page">
+    <img src="./IMG/searchbar/logo.png" alt="">
+    <div>好券正在加载...不要走开哦～</div>
+    <span>首次加载资源需要较长时间，属于正常现象，下次进入就很快了哦！</span>
+</div>
+
 <div id="main">
 
     <div class="page" id="page_0" :class="{hidden: !tabs[0]}">
@@ -151,18 +157,6 @@
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript">
-
-                    var winWidth;
-                    if (window.innerWidth)
-                        winWidth = window.innerWidth;
-                    else if ((document.body) && (document.body.clientWidth))
-                        winWidth = document.body.clientWidth;
-                    var couponContainer = document.getElementsByClassName("couponswiper-container")[0];
-                    console.log(winWidth);
-                    couponContainer.style.width = winWidth + "px"
-
-                </script>
 
 
                 <div class="newcoupon block">
@@ -171,7 +165,7 @@
                         <span>好券直播·每日10点上新</span>
                     </div>
                     <div class="coupons">
-                        <div class="coupon">
+                        <div class="coupon" onclick="window.location.href = './goodsdetails.html'">
                             <img class="coupon_img" src="./IMG/demopic/img0.jpg">
                             <div class="coupon_middle">
                                 <div class="coupon_title">灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯这是灯灯灯灯</div>
@@ -335,16 +329,7 @@
                 </div>
             </div>
         </div>
-        <script type="text/javascript">
-            var winWidth;
-            if (window.innerWidth)
-                winWidth = window.innerWidth;
-            else if ((document.body) && (document.body.clientWidth))
-                winWidth = document.body.clientWidth;
-            var couponContainer = document.getElementsByClassName("couponswiper-container1")[0];
-            console.log(winWidth);
-            couponContainer.style.width = winWidth + "px";
-        </script>
+
         <div class="block" style="background: none;position: relative; bottom: 4rem; border-bottom: 0; padding: 2.5%;">
             <span>&nbsp热门标签</span><br>
             <div class="searchrecommend">男装男装</div>
@@ -412,10 +397,6 @@
             <img v-if="tabs[0]" class="bottombar_tab_img" src="./IMG/bottombar/home_selected.png">
             <div>首页</div>
         </div>
-        <!--<div class="bottombar_tab">
-            <img class="bottombar_tab_img" src="./IMG/bottombar/speak.png">
-            <div>大家说</div>
-        </div>-->
         <div class="bottombar_tab" :class="{bottombar_tab_selected: tabs[1]}" @click="switchToTab(1)">
             <img v-if="!tabs[1]" class="bottombar_tab_img" src="./IMG/bottombar/search.png">
             <img v-if="tabs[1]" class="bottombar_tab_img" src="./IMG/bottombar/search_selected.png">
@@ -446,11 +427,31 @@
         </div>
     </div>
 
+
 </div>
 </body>
 
 
 <script type="text/javascript">
+
+    var loadingPage = document.getElementById("loading_page");
+
+    window.onload = function () {
+        loadingPage.hidden = true;/*隐藏等待界面*/
+    };
+
+    var winWidth;
+    if (window.innerWidth)
+        winWidth = window.innerWidth;
+    else if ((document.body) && (document.body.clientWidth))
+        winWidth = document.body.clientWidth;
+
+    /*var swiper0 = document.getElementsByClassName("couponswiper-container")[0];
+    var swiper1 = document.getElementsByClassName("couponswiper-container1")[0];
+    var body = document.getElementsByTagName("body")[0];*/
+    var page0 = document.getElementById("page_0");
+    var page1 = document.getElementById("page_1");
+
 
     var status = document.getElementsByTagName("status");
     var swiperboxImg = document.getElementsByClassName("swiperbox_in3_img");
@@ -537,7 +538,6 @@
         swiperboxImg[i].style.height = swiperboxImg[i].offsetWidth + "px";
     }
 
-
     var topSwiper = new Swiper('.swiper-container', {
         loop: true,
         autoplay: 5000,
@@ -556,6 +556,9 @@
         autoplay: 3000,
         autoplayDisableOnInteraction: false
     });
+
+    page0.style.width = winWidth + "px";
+    page1.style.width = winWidth + "px";
 
     var lastTimeStatus = sessionStorage.getItem("lastTimeStatus");
     if (lastTimeStatus) {

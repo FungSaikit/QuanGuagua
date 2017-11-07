@@ -5,7 +5,6 @@
 
 body {
     background-color: #eee;
-    width: 100%;
     overflow-x: hidden;
 }
 
@@ -18,6 +17,16 @@ input {
     background-color: #fff;
     border: 0;
     width: 1rem;
+}
+
+#page_0 {
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
+}
+
+#page_1 {
+    overflow-x: hidden;
+    -ms-overflow-x: hidden;
 }
 
 .hidden {
@@ -647,4 +656,27 @@ input {
     left: 0;
     right: 0;
     z-index: 102;
+}
+
+#loading_page {
+    position: fixed;
+    width: 90%;
+    height: 95%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    text-align: center;
+    z-index: 200;
+    color: darkred;
+    padding: 5%;
+}
+
+#loading_page img {
+    margin-top: 50%;
+    width: 30%;
+}
+
+#loading_page span{
+    font-size: 0.8rem;
+
 }
