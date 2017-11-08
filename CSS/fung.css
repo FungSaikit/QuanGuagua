@@ -82,7 +82,7 @@ input {
     background-color: #fff;
     height: 2rem;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     vertical-align: middle;
     margin: 0.25rem;
     display: flex;
@@ -98,8 +98,10 @@ input {
 
 .searchbar_middle_input {
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     font-size: 1rem;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
 }
 
 .searchbar_middle_button {
@@ -127,7 +129,7 @@ input {
     color: gray;
     width: 10%;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     text-align: center;
     font-size: 0.8rem;
 }
@@ -172,7 +174,7 @@ input {
     width: 10%;
     height: 2.4rem;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     border-bottom: 0.1rem white solid;
 }
 
@@ -236,7 +238,7 @@ input {
 
 .swiper-slide {
     display: flex;
-    display:-webkit-flex;
+    display: -webkit-flex;
 }
 
 .swiperbox_in3 {
@@ -321,7 +323,7 @@ input {
 .coupon {
     height: 6rem;
     display: flex;
-    display:-webkit-flex;
+    display: -webkit-flex;
     background-color: #fff;
     width: 100%;
     margin-top: 0.4rem;
@@ -335,8 +337,9 @@ input {
 }
 
 .coupon_middle {
+    width: 1rem;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
 }
 
 .coupon_right_img {
@@ -349,7 +352,7 @@ input {
     height: 2rem;
     line-height: 2rem;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     color: dimgray;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -425,7 +428,7 @@ input {
 
 .usermenu {
     display: flex;
-    display:-webkit-flex;
+    display: -webkit-flex;
     flex-direction: row;
     height: 4rem;
     width: 100%;
@@ -435,7 +438,7 @@ input {
     height: 100%;
     width: 10%;
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     text-align: center;
     font-size: 0.8rem;
 }
@@ -489,6 +492,7 @@ input {
     position: relative;
     bottom: 8rem;
     display: inline-flex;
+    display: -webkit-inline-flex;
     border-radius: 2rem;
     padding-left: 0.5rem;
     border: 1px white solid;
@@ -544,7 +548,7 @@ input {
     color: #fff;
     text-align: center;
     display: flex;
-    display:-webkit-flex;
+    display: -webkit-flex;
     position: fixed;
     top: 0;
     z-index: 100;
@@ -552,7 +556,7 @@ input {
 
 .navigationbar_middle {
     flex-grow: 1;
-    -webkit-flex-grow:1;
+    -webkit-flex-grow: 1;
     text-align: center;
 }
 
@@ -682,7 +686,7 @@ input {
     left: 0;
     background-color: #fff;
     text-align: center;
-    z-index: 200;
+    z-index: 1000;
     color: darkred;
     padding: 5%;
 }

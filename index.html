@@ -26,7 +26,7 @@
 
     <div class="page" id="page_0" :class="{hidden: !tabs[0]}">
         <div class="searchbar">
-            <img src="IMG/searchbar/logo.png" alt="" class="searchbar_button">
+            <img src="IMG/searchbar/logo.png" class="searchbar_button">
             <div class="searchbar_middle">
                 <img src="IMG/searchbar/search_black.png" class="searchbar_middle_img">
                 <input class="searchbar_middle_input" type="text" placeholder="请输入关键词搜索">
@@ -292,7 +292,7 @@
             <div class="searchbar_outer">
                 <img src="./IMG/searchbar/search_white.png" class="searchbar_middle_img">
                 <input type="text" class="searchbar_middle_input"
-                       style="background-color: rgba(0, 0, 0, 0); color: #fff;">
+                       style="background-color: rgba(0, 0, 0, 0); color: #fff; flex-grow: 1; -webkit-flex-grow: 1;">
                 <button class="search_button"
                         onclick="">搜索
                 </button>
@@ -437,6 +437,10 @@
 <script type="text/javascript">
 
     var loadingPage = document.getElementById("loading_page");
+    var timeout = setTimeout(function () {
+        loadingPage.hidden = true;
+        clearTimeout(timeout);
+    }, 10000);
 
     window.onload = function () {
         loadingPage.hidden = true;
