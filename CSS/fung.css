@@ -688,4 +688,13 @@ input {
     bottom: 4rem;
     right: 0.5rem;
     z-index: 999;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 2rem;
+}
+
+.get_top_img {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0.5rem;
 }
