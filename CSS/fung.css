@@ -680,3 +680,12 @@ input {
     font-size: 0.8rem;
 
 }
+
+.get_top {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: fixed;
+    bottom: 4rem;
+    right: 0.5rem;
+    z-index: 999;
+}

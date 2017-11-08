@@ -283,7 +283,7 @@
             <div class="placeholder"></div>
         </div>
 
-
+        <img src="IMG/bottombar/get_top.png" class="get_top" onclick="window.location.href='#'">
     </div>
 
     <div class="page" id="page_1" :class="{hidden: !tabs[1]}">
@@ -291,7 +291,8 @@
         <div class="searchbar_div">
             <div class="searchbar_outer">
                 <img src="./IMG/searchbar/search_white.png" class="searchbar_middle_img">
-                <input type="text" class="searchbar_middle_input" style="background-color: rgba(0, 0, 0, 0); color: #fff;">
+                <input type="text" class="searchbar_middle_input"
+                       style="background-color: rgba(0, 0, 0, 0); color: #fff;">
                 <button class="search_button"
                         onclick="">搜索
                 </button>
@@ -429,6 +430,7 @@
 
 
 </div>
+
 </body>
 
 
@@ -437,7 +439,8 @@
     var loadingPage = document.getElementById("loading_page");
 
     window.onload = function () {
-        loadingPage.hidden = true;/*隐藏等待界面*/
+        loadingPage.hidden = true;
+        /*隐藏等待界面*/
     };
 
     var winWidth;
@@ -581,13 +584,14 @@
 
 
     function showActivityCode() {
-        activityThemePic.src = "./IMG/swiper/img1.png";/*顶部图片地址*/
+        activityThemePic.src = "./IMG/swiper/img1.png";
+        /*顶部图片地址*/
         activityTitle.innerHTML = "双十一红包疯抢";
         activityCode.innerHTML = "复制整行￥fSyo0TJil2T￥";
         activityCodeContent.innerHTML = "双十一活动现在开始啦";
         activityCodeBlock.hidden = false;
     }
-    
+
     function hideActivityCode() {
         activityCodeBlock.hidden = true;
     }
@@ -611,12 +615,11 @@
             button.style.backgroundColor = "";
         }
     }
-    
+
 
 </script>
 
 <script type="text/javascript">
-
 
 
 </script>
