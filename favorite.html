@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<meta name="viewport"
+      content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1">
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>券呱呱</title>
+    <link rel="stylesheet" href="./CSS/fung.css">
+    <script type="text/javascript" src="./JavaScript/vue.js"></script>
+</head>
+<body>
+
+<div id="main">
+
+    <div class="navigationbar">
+        <img src="./IMG/searchbar/back.png" class="navigationbar_button" onclick="history.go(-1)">
+        <div class="navigationbar_middle">
+            我的收藏
+        </div>
+        <img :src="rightButtonSrc" class="navigationbar_button" @click="changeMode()">
+    </div>
+
+    <div class="placeholder_low"></div>
+
+    <div class="newcoupon block" style="margin-top: 0;">
+        <div class="coupons">
+            <div class="coupon" v-for="item,index in coupons" @click="touchMe(index)">
+                <div class="couponselectblock" :class="{hidden: !mode}">
+                    <input class="delete_checkbox" type="checkbox" onclick="event.stopPropagation();">
+                </div>
+                <img class="coupon_img" :src="item.img">
+                <div class="coupon_middle">
+                    <div class="coupon_title">{{item.title}}</div>
+                    <div class="coupon_down">
+                        <del class="originalprice">¥ {{item.originPrice}}</del>
+                        <span class="coupon_salenumber">销量:{{item.saleNumber}}</span>
+                        <br>
+                        <span class="couponprice" v-if="!item.isOverdue">券后价:¥ {{item.price}}</span>
+                        <span class="couponprice" style="color: gray;" v-if="item.isOverdue">已失效</span>
+                    </div>
+                </div>
+                <div class="coupon_right_img" :class="{hidden: mode}">
+                    <img class="coupon_right_img" src="./IMG/coupon/coupon.png">
+                    <div class="offprice">{{item.offPrice}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loading">已经到底了哦</div>
+    <div :class="{hidden: !mode}" class="placeholder"></div>
+    <div :class="{hidden: !mode}" class="bottombar">
+        <div class="bottombar_button" @click="deleteOverdue()">清空过期券</div>
+        <div class="bottombar_button" style="color: #fff; background-color:#f38200;" @click="deleteSelected()">删除</div>
+    </div>
+</div>
+
+
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+
+    var deleteCheckBox = document.getElementsByClassName("delete_checkbox");
+
+    var favorite = new Vue({
+        el: "#main",
+        data: {
+            mode: 0, /*0为正常模式，1为删除模式*/
+            coupons: []
+        },
+        methods: {
+            changeMode: function () {
+                this.mode = this.mode === 0 ? 1 : 0;
+            },
+            touchMe: function (index) {
+                /* mode为0时跳转到商品详情页，mode为2时为选定checkbox */
+                if (this.mode === 0) {
+                    console.log("id = " + this.coupons[index].id);
+                    /*window.location.href = "";*/
+                } else if (this.mode === 1) {
+                    deleteCheckBox[index].checked = !deleteCheckBox[index].checked;
+                }
+            },
+            deleteSelected: function () {
+                /* 删除选择的券 */
+                var deleteArray = [];
+                /* 用来记录要删除券的id */
+
+                for (var i = 0; i < deleteCheckBox.length; i++) {
+                    if (deleteCheckBox[i].checked) {
+                        deleteArray.push(this.coupons[i].id);
+                    }
+                }
+                if (deleteArray.length === 0) {
+                    alert("您未选择任何的收藏哦～");
+                } else {
+                    if (confirm("您确定要删除这" + deleteArray.length + "张券吗？")) {
+                        /* 与服务器通讯 */
+
+                        console.log(deleteArray);
+                        /* deleteArray 中存放应该选中删除券的id */
+
+                        if (1) {/* 如果服务器返回删除成功 */
+                            alert("删除成功！");
+                            for (var i = deleteCheckBox.length - 1; i >= 0; i--) {
+                                if (deleteCheckBox[i].checked) {
+                                    deleteCheckBox[i].checked = false;
+                                    this.coupons.splice(i, 1);
+                                }
+                            }
+                        } else {
+                            alert("删除失败！");
+                        }
+                    }
+                }
+
+
+            },
+            deleteOverdue: function () {
+                /* ajax删除过期券 */
+                /* 重新刷新列表数据 */
+                if (1) {
+                    alert("删除成功！");
+                }
+            }
+        },
+        computed: {
+            rightButtonSrc: function () {
+                return this.mode === 0 ? "./IMG/searchbar/delete.png" : "./IMG/searchbar/go_back.png";
+            }
+        }
+    })
+
+    favorite.coupons.push({
+            id: 100,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: false/*是否已经失效*/
+        },
+        {
+            id: 101,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: true/*是否已经失效*/
+        },
+        {
+            id: 102,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: false/*是否已经失效*/
+        },
+        {
+            id: 103,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: true/*是否已经失效*/
+        },
+        {
+            id: 104,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: false/*是否已经失效*/
+        },
+        {
+            id: 105,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: false/*是否已经失效*/
+        },
+        {
+            id: 106,
+            img: "./IMG/demopic/img0.jpg",
+            title: "Haier/海尔 EC8003-MT3(U1) 热水器电家用速热储水式",
+            saleNumber: 1688,
+            originPrice: "888", /*这是原价*/
+            offPrice: "88", /*这是优惠额度*/
+            price: "800",/*这是券后价*/
+            isOverdue: false/*是否已经失效*/
+        });
+
+</script>
+
+</html>

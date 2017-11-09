@@ -30,7 +30,7 @@ input {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .searchbar {
@@ -717,4 +717,25 @@ input {
     width: 1.5rem;
     height: 1.5rem;
     margin: 0.5rem;
+}
+
+.couponselectblock {
+    height: 6rem;
+    line-height: 6rem;
+    margin-left: 0.5rem;
+    margin-right: 0.3rem;
+}
+
+.couponselectblock input {
+    border: 1px dimgray solid;
+    background-color: #fff;
+}
+
+
+.bottombar_button {
+    width: 1rem;
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    line-height: 3rem;
+    text-align: center;
 }
